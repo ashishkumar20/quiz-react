@@ -49,7 +49,7 @@ const QuizPage = () => {
       setTimeLeft(questions[currentQuestionIdx].timeLimit);
     } else {
       navigate('/result', {
-        state: { correct: correctCount, unanswered: unansweredCount }
+        state: { correct: correctCount, incorrect: questions?.length - correctCount, unanswered: unansweredCount, score: `${Math.round((correctCount / questions.length) * 100)}%` }
       });
     }
   };
@@ -79,7 +79,10 @@ const QuizPage = () => {
           );
         })}
       </div>
-      <button onClick={handleNext} className="btn next-btn">Next</button>
+      <div style={{display: 'flex'}}>
+        <button onClick={handleNext} className="btn next-btn">Next</button>
+        <button onClick={handleNext} className="btn skip-btn">Skip this Question</button>
+      </div>
     </div>
   );
 };

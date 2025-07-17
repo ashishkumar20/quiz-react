@@ -17,6 +17,7 @@ const ResultPage = () => {
       <h1>Quiz Complete!</h1>
       <p>Correct Answers: {result.correct}</p>
       <p>Unanswered: {result.unanswered}</p>
+      <p>Score: {result.score}</p>
       <h3>{feedback}</h3>
       <button onClick={handleRestart} className="btn">Restart</button>
     </div>
